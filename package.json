@@ -1,6 +1,7 @@
 {
   "name": "skills",
   "private": true,
+  "license": "MIT",
   "scripts": {
     "fmt:check": "oxfmt --check --no-error-on-unmatched-pattern",
     "fmt:fix": "oxfmt --no-error-on-unmatched-pattern",

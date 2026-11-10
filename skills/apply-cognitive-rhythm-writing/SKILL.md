@@ -1,6 +1,9 @@
 ---
 name: apply-cognitive-rhythm-writing
 description: 説明的な日本語の文章に緩急を設計する規範。緩急を認知モードの切替（観察→逡巡→断定→再観察）と未回収の緊張の管理として扱い、文の拍・段落の密度・節の入り方・緩みと駄文の判別・執筆後の点検手順を定める。読ませたい章・記事・解説文を書くとき、または「密度はあるが平坦でおもしろくない」文章を診断・修正するときに使う
+license: Unlicense
+metadata:
+  source: https://gist.github.com/k16shikano/eb2929f13ed19c97188393d297be8432/a3b1e26beced71d582e13314fb6f5b179b023c76
 ---
 
 # 認知リズムを生むための日本語ライティング規範
