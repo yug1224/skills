@@ -1,0 +1,8 @@
+pre-commit:
+  commands:
+    oxfmt:
+      glob: '*'
+      run: pnpm run fmt:fix {staged_files}
+      stage_fixed: true
+    secretlint:
+      run: pnpm exec secretlint --secretlintignore .gitignore {staged_files}

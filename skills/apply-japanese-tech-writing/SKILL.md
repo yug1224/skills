@@ -1,6 +1,9 @@
 ---
 name: apply-japanese-tech-writing
 description: 日本語の技術文書・記事の既定の文章規範。LLM っぽい空句、翻訳調の比喩と擬人化（「運ぶ」「効く」「開かれた問い」など）、冗長、情報のない見出しを禁じる。日本語で技術文書・記事・PR 本文・解説文を書くとき、または推敲・リライトするときに使う
+license: Unlicense
+metadata:
+  source: https://gist.github.com/k16shikano/fd287c3133457c4fd8f5601d34aa817d/8f2d57610a73efc97d743c9b0b0ecb1002e09fa4
 ---
 
 # 日本語技術文書の既定規範
