@@ -1,0 +1,16 @@
+{
+  "name": "skills",
+  "private": true,
+  "scripts": {
+    "fmt:check": "oxfmt --check --no-error-on-unmatched-pattern",
+    "fmt:fix": "oxfmt --no-error-on-unmatched-pattern",
+    "skills:check": "gh skill publish --dry-run",
+    "upstream:check": "./scripts/check-upstream.sh"
+  },
+  "devDependencies": {
+    "@secretlint/secretlint-rule-preset-recommend": "^13.1.0",
+    "oxfmt": "^0.76.0",
+    "secretlint": "^13.1.0"
+  },
+  "packageManager": "pnpm@10.34.3"
+}
