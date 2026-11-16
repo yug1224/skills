@@ -14,5 +14,5 @@ description: GitHub PR かローカル差分をレビューし、判定と P0/P1
    - PR: 読み取りの `gh`（`gh pr view` / `gh pr diff` / `gh pr checks`）で、タイトル・本文・ベースブランチ・差分・CI 状態・既存レビューコメントを取る。`gh` が使えなければ GitHub MCP で代替する
    - ローカル差分: `code-review-rule` の「対象と比較先」に従う
 3. `code-review-rule` の「対象と比較先」で読むものを読み、「重要度」と「指摘の絞り方」に従って指摘の下書きを出す
-4. `review-report-rule` の「反証」を通す
+4. `review-report-rule` の「反証」を通す。`code-review-rule` の「ローカル検証」の lefthook は回さない（oxlint の `--fix` で作業ツリーが変わるため）。実行して確かめるのは、反証の再現テストとコマンドだけにする
 5. 出力テンプレートで提示する。判定のラベルは ✅ Approve / ⚠️ Comment / ❌ Request Changes。「対象 / スコープ」には PR かローカル差分か、比較先、変更ファイル数、CI 状態（PR のとき）を書く

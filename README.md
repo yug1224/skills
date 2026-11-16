@@ -1,18 +1,18 @@
 # skills
 
-Claude Code と Cursor で使う Agent Skills。[yug1224/dotfiles](https://github.com/yug1224/dotfiles) の `make mise` が、このリポジトリを `~/Workspaces/yug1224/skills` に clone し、`gh skill install --from-local` で `~/.claude/skills/` にコピーする（Cursor も同じ場所を読む）。
+Claude Code と Cursor で使う Agent Skills。[yug1224/dotfiles](https://github.com/yug1224/dotfiles) の `make mise` が、このリポジトリを `~/Workspaces/yug1224/skills` に clone し（mise の `[bootstrap.repos]`）、`gh skill install --from-local` で `~/.claude/skills/` を作り直す（Cursor も同じ場所を読む）。
 
 ## インストール
+
+dotfiles を使うときは `mise -C ~/.dotfiles run skills:update` で入れ直す。このタスクは別の場所に全部入れてから `~/.claude/skills/` と入れ替えるので、Skill の中のファイルや Skill そのものを消したり名前を変えたりしても、そのまま反映される。clone の作業ツリーがそのまま入るので、別のブランチや commit 前の変更も入る。GitHub の最新を入れるときは、先に clone を `git pull` する（`make mise` も pull はしない）。
+
+dotfiles を使わずに入れるときは次のコマンドを使う。
 
 ```bash
 gh skill install ~/Workspaces/yug1224/skills --from-local --all --agent claude-code --scope user --force
 ```
 
-dotfiles からは `mise -C ~/.dotfiles run skills:update` で同じことをする。clone の作業ツリーがそのまま入るので、別のブランチや commit 前の変更も入る。GitHub の最新を入れるときは、先に clone を `git pull` する（`make mise` も pull はしない）。
-
-`--from-local` で入れたものは `gh skill update` の対象にならない。更新は上のコマンドで入れ直す。`gh skill` はファイルをコピーするので、`~/.claude/skills/` を直接直しても次に入れ直すと上書きされる。直すときはこのリポジトリを直す。
-
-`--force` でも、元から消したファイルはインストール先に残る。dotfiles の `skills:update` は、このリポジトリにある Skill のディレクトリを先に消してから入れるので、Skill の中のファイルを消したときはそのまま反映される。Skill のディレクトリごと消したり名前を変えたりしたときは、古い名前のディレクトリをインストール先から手で消す。
+`--from-local` で入れたものは `gh skill update` の対象にならない。更新は入れ直す。`gh skill` はファイルをコピーするので、`~/.claude/skills/` を直接直しても次に入れ直すと上書きされる。直すときはこのリポジトリを直す。このコマンドで入れたときは、`--force` でも元から消したファイルや Skill がインストール先に残るので、手で消す。
 
 ## 構成
 

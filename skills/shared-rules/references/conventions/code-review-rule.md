@@ -25,3 +25,18 @@ P0 / P1 は既存踏襲より正しさを優先し、P2 は既存実装を正と
 - スタイル・好み・表記揺れだけの指摘は出さない
 - 既存実装との乖離を根拠にするときは、比較先の `path:行` を添える
 - 既存レビューコメントと同じ指摘は繰り返さず、未対応なら「既存コメント未対応」と書く
+
+## ローカル検証
+
+typecheck は重いので実行せず CI に任せる。lint・format・test は変更範囲だけを実行する。
+
+- lint / format: リポジトリのルートに `lefthook.yml` があれば、変更ファイルに pre-commit を当てる。無ければ飛ばす。`--file` で `{staged_files}` を差し替えるので stage していない変更にも当たり、`--no-stage-fixed` で自動修正したファイルを `git add` しない
+
+  ```bash
+  { git diff --name-only --diff-filter=d <比較先>...HEAD; git diff --name-only --diff-filter=d HEAD; git ls-files --others --exclude-standard; } | sort -u | sed 's/^/--file=/' | xargs lefthook run pre-commit --no-stage-fixed --no-auto-install --no-tty
+  ```
+
+  ファイル一覧を変数に入れて `$(...)` で展開しない。zsh は単語分割しないので、最初の 1 ファイルしか渡らない。shortcut: 空白を含むパスは xargs で分割されて壊れる。該当するリポジトリが出たら `-z` と `xargs -0` に変える
+
+- test: 変更ファイルに対応するテストだけを実行する。手順はリポジトリの ci-check 系 Skill か `~/.claude/skills/local-rules/references/conventions/coding-rule.local.md` に従う
+- 実行しなかったもの（typecheck を含む）は「未検証」として報告する
