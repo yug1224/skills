@@ -28,7 +28,7 @@ P0 / P1 は既存踏襲より正しさを優先し、P2 は既存実装を正と
 
 ## ローカル検証
 
-typecheck は重いので実行せず CI に任せる。lint・format・test は変更範囲だけを実行する。
+typecheck は、`~/.claude/skills/local-rules/references/conventions/coding-rule.local.md`（存在時）に手順があればそれに従って実行する。手順が無ければ重いので実行せず CI に任せる。lint・format・test は変更範囲だけを実行する。
 
 - lint / format: リポジトリのルートに `lefthook.yml` があれば、変更ファイルに pre-commit を当てる。無ければ飛ばす。`--file` で `{staged_files}` を差し替えるので stage していない変更にも当たり、`--no-stage-fixed` で自動修正したファイルを `git add` しない
 
@@ -39,4 +39,4 @@ typecheck は重いので実行せず CI に任せる。lint・format・test は
   ファイル一覧を変数に入れて `$(...)` で展開しない。zsh は単語分割しないので、最初の 1 ファイルしか渡らない。shortcut: 空白を含むパスは xargs で分割されて壊れる。該当するリポジトリが出たら `-z` と `xargs -0` に変える
 
 - test: 変更ファイルに対応するテストだけを実行する。手順はリポジトリの ci-check 系 Skill か `~/.claude/skills/local-rules/references/conventions/coding-rule.local.md` に従う
-- 実行しなかったもの（typecheck を含む）は「未検証」として報告する
+- 実行しなかったもの（CI に任せた typecheck を含む）は「未検証」として報告する
