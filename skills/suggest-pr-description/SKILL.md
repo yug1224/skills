@@ -11,7 +11,7 @@ description: プロジェクトの PR テンプレートに準拠した PR の T
 
 1. 次を Read する
    - `~/.claude/skills/apply-japanese-tech-writing/SKILL.md`
-   - `~/.claude/skills/shared-rules/references/conventions/mermaid-diagram-rule.md`
+   - `~/.claude/skills/shared-rules/references/conventions/diagram-rule.md`
    - `~/.claude/skills/local-rules/references/overlays/suggest-pr-description.md`（存在すれば。矛盾時はこちらを優先）
    - チケット引数があるときのみ `~/.claude/skills/local-rules/references/conventions/ticket-retrieval-rule.local.md`（存在すれば）
 2. 新規 PR は `origin/HEAD` が指す既定ブランチ（検出できなければ `develop` → `main`）との差分を見る
@@ -28,7 +28,7 @@ description: プロジェクトの PR テンプレートに準拠した PR の T
 
 - PR タイトルは `~/.claude/skills/shared-rules/references/conventions/commit-message-rule.md` のヘッダー 1 行と同じ形式（`type(scope): subject [TICKET-ID]`。Squash merge 時のコミットメッセージと揃える）。プロジェクトにタイトル慣習があればそちらを優先する
 - 本文は日本語（技術用語は英語可）。テンプレートの全セクションを埋め、「目的」は 1 つだけ選ぶ
-- 図は `mermaid-diagram-rule.md` に従い、`**変更点の概要**` か `### 主な実装内容` の該当タスクの下に置く
+- 図は `diagram-rule.md` に従って archify で作り、`**変更点の概要**` か `### 主な実装内容` の該当タスクの下に置く
 
 ## 出力フォーマット
 

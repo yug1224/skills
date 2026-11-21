@@ -13,7 +13,7 @@ disable-model-invocation: true
 | `references/conventions/code-review-rule.md`     | レビューの重要度・比較先 |
 | `references/conventions/review-report-rule.md`   | レビューの反証と出力の型 |
 | `references/conventions/review-feedback-rule.md` | 指摘対応                 |
-| `references/conventions/mermaid-diagram-rule.md` | PR・ADR の Mermaid 図    |
+| `references/conventions/diagram-rule.md`         | PR・ADR の図（archify）  |
 | `references/blog/blog-review-rule.md`            | ブログ記事の評価基準     |
 
 各規約の Git 外の上書きは `~/.claude/skills/local-rules/references/<domain>/<name>.local.md` に置く（存在するときだけ Read し、矛盾時はそちらを優先）。
