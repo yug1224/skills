@@ -24,7 +24,7 @@ skills/
 scripts/check-upstream.sh      # 出典表の gist が更新されていないか確かめる
 ```
 
-規約の Git 外の上書きは `~/.claude/skills/local-rules/references/<domain>/<name>.local.md` に置く想定で、存在するときだけ Read する。無くても動く。
+規約の Git 外の上書きは `~/.claude/skills/local-rules/references/<domain>/<name>.local.md` に置く想定で、存在するときだけ Read する。無くても動く。命名・配置・上書きの決まりと push 前の漏洩チェックは [CONVENTIONS.md](CONVENTIONS.md)。
 
 ## 開発
 
