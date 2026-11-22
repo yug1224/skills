@@ -6,8 +6,12 @@
 
 - 比較先: PR は `gh pr view --json baseRefName` の `origin/<baseRefName>`、それ以外は `~/.claude/skills/local-rules/references/conventions/code-review-rule.local.md` の既定、無ければ `origin/HEAD`。`git fetch` はしない
 - ローカル差分: `git diff HEAD`（staged と未 staged の両方）。空なら `git diff <比較先>...HEAD`
-- 対象リポジトリの `.cursor/rules/` と `.claude/skills/` を ls し、変更範囲に関係するものだけ Read する
+- 対象リポジトリのルールを次の順で探し、変更範囲に関係するものだけ Read する: `REVIEW.md` → CLAUDE.md / AGENTS.md の索引 → 索引が無ければ `.claude/rules/`、それも無ければ `.cursor/rules/` を ls。Skill は索引が指すものを読み、指していなければ `.claude/skills/` を ls する
 - チケット ID / URL が引数か PR 本文にあるときだけ背景を取る（`~/.claude/skills/local-rules/references/conventions/ticket-retrieval-rule.local.md` が存在すればその手順に従う）
+
+## 優先順位
+
+レビュー観点と規約は対象リポジトリのルールを正本とし、このファイルと `.local.md` に書き写さない。リポジトリのルールと矛盾したら観点はリポジトリを、出力の形（重要度ラベル・判定・テンプレート）はこちらを優先する。
 
 ## 重要度
 
