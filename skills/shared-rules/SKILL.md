@@ -1,6 +1,7 @@
 ---
 name: shared-rules
 description: 他の Skill とカーネルが Read する公開規約の置き場。直接は使わない
+license: MIT
 disable-model-invocation: true
 ---
 
@@ -14,6 +15,7 @@ disable-model-invocation: true
 | `references/conventions/review-report-rule.md`   | レビューの反証と出力の型 |
 | `references/conventions/review-feedback-rule.md` | 指摘対応                 |
 | `references/conventions/diagram-rule.md`         | PR・ADR の図（archify）  |
+| `references/conventions/pstack-rule.md`          | pstack の Skill の呼び方 |
 | `references/blog/blog-review-rule.md`            | ブログ記事の評価基準     |
 
 各規約の Git 外の上書きは `~/.claude/skills/local-rules/references/<domain>/<name>.local.md` に置く（存在するときだけ Read し、矛盾時はそちらを優先）。

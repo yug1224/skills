@@ -1,9 +1,10 @@
 ---
 name: suggest-branch-name
-description: 変更内容やチケットからブランチ名を Must have / Nice to have で提案する。ブランチ名を決めたいときに使う。ブランチは作らない
+description: 変更内容やチケットからブランチ名を 1 案提案する。ブランチ名を決めたいときに使う。ブランチは作らない
+license: MIT
 ---
 
-変更内容（staged / unstaged の差分、会話、チケット）から、ブランチ名を Must have / Nice to have の 2 パターンで提案する。
+変更内容（staged / unstaged の差分、会話、チケット）から、ブランチ名を 1 案提案する。
 
 **Input**: チケット ID または URL（任意）。
 

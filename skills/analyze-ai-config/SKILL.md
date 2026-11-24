@@ -1,6 +1,7 @@
 ---
 name: analyze-ai-config
 description: AI 資産（skills / rules / commands / agents）を global・shared・project 横断で棚卸しする（読み取り専用）。AI 設定の重複・衝突・配置を確かめたいときに使う
+license: MIT
 ---
 
 skills / rules / commands / agents を横断し、global・shared・project の AI 設定を棚卸しする。調査のみで、ファイルは作成・変更・削除しない。

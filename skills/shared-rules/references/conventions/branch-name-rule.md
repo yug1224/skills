@@ -13,22 +13,12 @@
 
 ## 提案手順
 
-- **Must have**: `type/ticket-id-name`（規約準拠の標準的な命名）
-- **Nice to have**: `type/ticket-id-descriptive-name`（より具体的）
-- チケット ID が無いときは、どちらも ID なしで詳細度の違いとして出す
+- 1 案だけ出す。チケット ID があれば `type/ticket-id-name`、無ければ `type/name`
 
 ## 出力フォーマット
 
-見出しは地の文で出し、コードブロックにはブランチ名 1 行だけを入れる。type の選択理由を短く添える。
-
-### Must have
+コードブロックにはブランチ名 1 行だけを入れる。type の選択理由を短く添える。
 
 ```
 type/PROJ-XXXX-branch-name
-```
-
-### Nice to have
-
-```
-type/PROJ-XXXX-descriptive-branch-name
 ```

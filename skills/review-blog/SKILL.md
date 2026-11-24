@@ -1,6 +1,7 @@
 ---
 name: review-blog
 description: ブログ記事を 7 観点（防御力・炎上リスク・人間らしさ等）で採点し、判定と P0/P1/P2 の指摘（書き換え例つき）を review-pr と同じ形式で返す。ブログ記事の評価・レビューを頼まれたときに使う（記事は書き換えない）
+license: MIT
 ---
 
 ブログ記事を `blog-review-rule` の 7 観点で採点し、`review-report-rule` の出力テンプレートで報告する。
