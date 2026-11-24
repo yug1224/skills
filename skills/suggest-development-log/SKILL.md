@@ -1,6 +1,7 @@
 ---
 name: suggest-development-log
 description: チケットと PR から開発ログを MECE 構造で生成する。タスク対応の開発ログ・作業記録をまとめたいときに使う
+license: MIT
 ---
 
 チケットと GitHub PR の情報から、固定テンプレートに沿った開発ログを作る。

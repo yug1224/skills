@@ -1,6 +1,7 @@
 ---
 name: apply-review-feedback
 description: PR / diff の指摘とセルフレビューを判定し、妥当なものだけコードで直す
+license: MIT
 disable-model-invocation: true
 ---
 
@@ -10,5 +11,5 @@ PR コメント・レビュー Bot の指摘・セルフレビューを 対応 /
 
 ## Steps
 
-1. `~/.claude/skills/shared-rules/references/conventions/` の `review-feedback-rule.md`・`code-review-rule.md`・`review-report-rule.md` を Read する。`~/.claude/skills/local-rules/references/conventions/` の `review-feedback-rule.local.md` と `code-review-rule.local.md` は存在するものだけ Read する（矛盾時は `.local.md` を優先）
+1. `~/.claude/skills/shared-rules/references/conventions/` の `review-feedback-rule.md`・`code-review-rule.md`・`review-report-rule.md` を Read する。`~/.claude/skills/local-rules/references/conventions/` の `review-feedback-rule.local.md`・`code-review-rule.local.md`・`agent-run-rule.local.md` は存在するものだけ Read する（矛盾時は `.local.md` を優先。`agent-run-rule.local.md` は「作業範囲」と終了報告の「残件」だけに従う）
 2. 「前提」「判定」「ループ」に従い、「終了報告」を出力する

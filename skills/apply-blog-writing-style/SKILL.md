@@ -1,6 +1,7 @@
 ---
 name: apply-blog-writing-style
 description: yug1224（ぷーじ）の過去記事から抽出したブログの文体・構成・トーン（挨拶、はじめに／おわりに、です・ます＋口語、見出し・段落・埋め込みリンクの流儀）と、日本語技術文書の規範に対する blog 用の Override。Zenn・Qiita などのブログ記事を書く・推敲するときに使う
+license: MIT
 ---
 
 # ブログ執筆スタイルガイド

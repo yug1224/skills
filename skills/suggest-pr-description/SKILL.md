@@ -1,6 +1,7 @@
 ---
 name: suggest-pr-description
 description: プロジェクトの PR テンプレートに準拠した PR の Title と Description を生成・改善する。PR 本文を書きたい・直したいときに使う。PR の作成・更新はしない
+license: MIT
 ---
 
 利用可能な情報を分析し、**プロジェクトの PR テンプレートに準拠した** PR Title と Description を提案する。

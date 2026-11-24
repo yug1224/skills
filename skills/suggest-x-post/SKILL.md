@@ -1,6 +1,7 @@
 ---
 name: suggest-x-post
 description: テック記事の URL・本文・Markdown から X 投稿用の二文要約を 1 案提案する。記事を X でシェアする文面がほしいときに使う。投稿はしない
+license: MIT
 ---
 
 テック記事の URL・本文・ローカル Markdown から、X 投稿用の**二文要約**を 1 案だけ提案する。

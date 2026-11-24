@@ -11,9 +11,9 @@
 | ローカル Skill | `local-<verb>-<object>/SKILL.md`     | private リポジトリの `skills/`                          |
 | ローカル上書き | `<basename>.local.md` / `<skill>.md` | `skills/local-rules/references/<domain>/` / `overlays/` |
 
-ファイル名は kebab-case。Skill は `<verb>-<object>`（ローカル Skill は先頭に `local-`）で、動詞は `suggest` / `review` / `plan` / `analyze` / `apply` から選ぶ（勝手に増やさない）。例外は規約の置き場だけの参照専用 Skill（`shared-rules` / `local-rules`）で、`disable-model-invocation: true` を付ける。業務リポジトリ側の Skill は名詞先頭にして名前空間を分ける（dotfiles の `packages/shared/ai/docs/project-skills.md`）。
+ファイル名は kebab-case。Skill は `<verb>-<object>`（ローカル Skill は先頭に `local-`）で、動詞は `suggest` / `review` / `plan` / `analyze` / `apply` / `create` から選ぶ（勝手に増やさない。`create` は動画などの生成物をファイルに書き出す Skill に使う）。例外は規約の置き場だけの参照専用 Skill（`shared-rules` / `local-rules`）で、`disable-model-invocation: true` を付ける。業務リポジトリ側の Skill は名詞先頭にして名前空間を分ける（dotfiles の `packages/shared/ai/docs/project-skills.md`）。
 
-Skill は frontmatter（`name` / `description`）を本文先頭に持つ。`name` はディレクトリ名と一致させ、`description` に「何をするか」と「いつ使うか」を書く（Cursor はこれで自動適用を判断する）。ルールに frontmatter は書かない。`gh skill` は `skills/*/SKILL.md` を探すので、private リポジトリでも Skill は `skills/` 直下に置く。
+Skill は frontmatter（`name` / `description`）を本文先頭に持つ。`name` はディレクトリ名と一致させ、`description` に「何をするか」と「いつ使うか」を書く（Cursor はこれで自動適用を判断する）。公開側の Skill は `license` も書く（自作は `MIT`、外部を蒸留したものは原典のライセンス）。private リポジトリの Skill には書かない。ルールに frontmatter は書かない。`gh skill` は `skills/*/SKILL.md` を探すので、private リポジトリでも Skill は `skills/` 直下に置く。
 
 ## Skill の自動発火
 
@@ -24,6 +24,7 @@ Skill は frontmatter（`name` / `description`）を本文先頭に持つ。`nam
 | `disable-model-invocation` なし  | 自然文の依頼（「コミットメッセージ考えて」）でも発火させたい、読み取りと提案だけのワークフロー | `suggest-commit-message`, `plan-blog`, `review-blog` |
 | `disable-model-invocation: true` | 明示したときだけ動かすもの。自動発火させたくないワークフロー・再適用系・ローカル Skill         | `apply-review-feedback`                              |
 
+- `disable-model-invocation: true` の Skill は Skill ツールから呼べない。ユーザーが別の Skill と続けて頼んだときに動かすなら、前の Skill の Step にその SKILL.md を Read させる（例: `review-pr` → `apply-review-feedback`）
 - その Skill だけが使う手順・規約は SKILL.md 本文に書く（Skill 本文は呼ばれたときだけ読まれるので、分けても Read が 1 回増えるだけ）。`skills/<name>/references/` に分けるのは、条件付きでしか読まないものと、そのまま出力する長い固定文だけ。他の Skill・ルールからも参照されるルールは `shared-rules/references/` に置く（例: `commit-message-rule.md` は `suggest-pr-description` と `branch-name-rule.md` からも参照される）。規約同士が相互に参照するので、ディレクトリ構成を保ったまま 1 か所にまとめる
 - ルールのパスは Skill の Step に書いて 1 回 Read させ、`@` でインライン展開しない（Claude Code は `@path` を起動時に展開するので二重に載る）
 - Git 外のワークフローは private リポジトリの `skills/local-<name>/` に置く。Skill の `name` はディレクトリ名と一致させる必要があり、`.local` を含む名前を Skill 名にできないため、接頭辞 `local-` で区別する
