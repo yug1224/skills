@@ -16,7 +16,9 @@ license: MIT
    - `~/.claude/skills/local-rules/references/overlays/suggest-pr-description.md`（存在すれば。矛盾時はこちらを優先）
    - チケット引数があるときのみ `~/.claude/skills/local-rules/references/conventions/ticket-retrieval-rule.local.md`（存在すれば）
 2. 新規 PR は `origin/HEAD` が指す既定ブランチ（検出できなければ `develop` → `main`）との差分を見る
-3. 下の「テンプレートの優先順位」でテンプレートを決め、「基本ルール」に従って作成し、「出力フォーマット」で提示する
+3. 下の「テンプレートの優先順位」でテンプレートを決め、「基本ルール」に従って作成する
+4. `~/.claude/skills/yomiyasu/SKILL.md` を Read して推敲する（存在するときだけ）。推敲後も Step 3 のテンプレートと書式を優先する
+5. 推敲した案を「出力フォーマット」で提示する
 
 ## テンプレートの優先順位
 

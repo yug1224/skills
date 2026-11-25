@@ -15,7 +15,8 @@ license: MIT
 1. `~/.claude/skills/local-rules/references/overlays/suggest-x-post.md` が存在すれば Read する（矛盾時はこちらを優先）
 2. 材料を取得する。取得できなければ要点の貼り付けを求めて停止する
 3. 下の「要約文の要件」「文の構成」に従って二文を書く
-4. fenced `text` ブロック 1 つ（1 行 1 文の二文）だけを出す。前置き・解説・ハッシュタグ・複数案は出さない
+4. `~/.claude/skills/yomiyasu/SKILL.md` を Read して推敲する（存在するときだけ）。推敲後も Step 3 の要件と構成を優先する
+5. fenced `text` ブロック 1 つ（1 行 1 文の二文）だけを出す。前置き・解説・ハッシュタグ・複数案は出さない
 
 ## 要約文の要件
 
