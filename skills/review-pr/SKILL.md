@@ -17,5 +17,6 @@ license: MIT
 3. `code-review-rule` の「対象と比較先」で読むものを読み、「重要度」と「指摘の絞り方」に従って指摘の下書きを出す
 4. 差分がデータの書き込み・認証・認可・金額・並行処理に触れるとき、または入力に「敵対的」とあるときは、`~/.claude/skills/shared-rules/references/conventions/pstack-rule.md` に従って pstack の `interrogate` も走らせ、検証済みの指摘を下書きに加える（重要度は `code-review-rule` で付け直す）
 5. `review-report-rule` の「反証」を通す。`code-review-rule` の「ローカル検証」の lefthook は回さない（oxlint の `--fix` で作業ツリーが変わるため）。実行して確かめるのは、反証の再現テストとコマンドだけにする
-6. 出力テンプレートで提示する。判定のラベルは ✅ Approve / ⚠️ Comment / ❌ Request Changes。「対象 / スコープ」には PR かローカル差分か、比較先、変更ファイル数、CI 状態（PR のとき）を書く
-7. ユーザーの依頼に `/apply-review-feedback` もあれば、報告のあとに `~/.claude/skills/apply-review-feedback/SKILL.md` を Read して、同じ対象で続ける（`disable-model-invocation` のため Skill ツールでは呼べない）
+6. `~/.claude/skills/yomiyasu/SKILL.md` を Read して指摘とインラインコメント案の文章を推敲する（存在するときだけ）。推敲後も出力テンプレートと重要度を優先する
+7. 出力テンプレートで提示する。判定のラベルは ✅ Approve / ⚠️ Comment / ❌ Request Changes。「対象 / スコープ」には PR かローカル差分か、比較先、変更ファイル数、CI 状態（PR のとき）を書く
+8. ユーザーの依頼に `/apply-review-feedback` もあれば、報告のあとに `~/.claude/skills/apply-review-feedback/SKILL.md` を Read して、同じ対象で続ける（`disable-model-invocation` のため Skill ツールでは呼べない）

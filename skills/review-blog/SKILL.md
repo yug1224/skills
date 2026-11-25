@@ -13,7 +13,8 @@ license: MIT
 1. `~/.claude/skills/shared-rules/references/blog/blog-review-rule.md` と `~/.claude/skills/shared-rules/references/conventions/review-report-rule.md` を Read する
 2. 想定読者と記事の目的を決め、7 観点で採点する
 3. 減点の原因になった箇所を「重要度」に従って指摘の下書きにし、`review-report-rule` の「反証」を通す
-4. 出力テンプレートで提示する。判定のラベルは ✅ 公開してよい / ⚠️ 改善の余地あり / ❌ 公開前に直す。「対象 / スコープ」に下の「スコア表」を置く
+4. `~/.claude/skills/yomiyasu/SKILL.md` を Read して指摘と書き換え例の文章を推敲する（存在するときだけ）。推敲後も出力テンプレートとスコアを優先する
+5. 出力テンプレートで提示する。判定のラベルは ✅ 公開してよい / ⚠️ 改善の余地あり / ❌ 公開前に直す。「対象 / スコープ」に下の「スコア表」を置く
 
 ## 重要度
 

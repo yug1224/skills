@@ -13,4 +13,6 @@ license: MIT
 1. 次を Read する
    - `~/.claude/skills/apply-japanese-tech-writing/SKILL.md`
    - `~/.claude/skills/local-rules/references/conventions/ticket-retrieval-rule.local.md`（存在すれば。チケット取得の手順）
-2. `~/.claude/skills/suggest-development-log/references/development-log-template.md` を Read し、そのテンプレートと記載量の目安で書いて提示する（WIP / Draft PR は「進行中」と明記）
+2. `~/.claude/skills/suggest-development-log/references/development-log-template.md` を Read し、そのテンプレートと記載量の目安で書く（WIP / Draft PR は「進行中」と明記）
+3. `~/.claude/skills/yomiyasu/SKILL.md` を Read して推敲する（存在するときだけ）。推敲後も Step 2 のテンプレートと記載量を優先する
+4. 推敲した案を提示する

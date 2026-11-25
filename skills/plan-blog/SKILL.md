@@ -49,6 +49,10 @@ license: MIT
 - 本文: 同じ語尾の 3 連続、200 字を大きく超える段落、1 段落 3 箇所以上の太字
 - 機密: 社内情報・他者の個人情報・スクリーンショットへの写り込み
 
+### 4. 推敲
+
+`~/.claude/skills/yomiyasu/SKILL.md` を Read してプランの文章を推敲する（存在するときだけ）。推敲後も手順 3 の節と構成を優先する
+
 ## Guardrails
 
 衝突時は `apply-blog-writing-style`（blog Override）を優先する。
