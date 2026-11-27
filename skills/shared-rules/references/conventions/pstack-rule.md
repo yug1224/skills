@@ -9,8 +9,9 @@
 
 ## 使い方
 
-- 最初の 1 回だけ `<pstack>/docs/harness/claude-code.md` を Read し、Cursor の名前を Claude Code の名前に読み替える
+- Claude Code で動かすときだけ、最初の 1 回 `<pstack>/docs/harness/claude-code.md` を Read し、Cursor の名前を Claude Code の名前に読み替える
 - `<pstack>/skills/<name>/SKILL.md` を Read して従う。その中で別の pstack Skill を呼ぶときも同じ
 - 比較先は `code-review-rule.md` の「対象と比較先」で決めたものを渡す（pstack の既定は `main`）
 - 出力の言語・テンプレート・文章規範は呼び出し元の Skill に従う。pstack の `unslop` / `technical-writing` は使わない
 - コミット・push・PR の作成はしない。呼び出し元の Skill かユーザーの指示に従う
+- 検証用の一時ファイルは `~/.claude/skills/shared-rules/references/conventions/code-review-rule.md` の「一時ファイル」に従う

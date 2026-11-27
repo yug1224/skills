@@ -15,7 +15,9 @@ license: MIT
    - PR: 読み取りの `gh`（`gh pr view` / `gh pr diff` / `gh pr checks`）で、タイトル・本文・ベースブランチ・差分・CI 状態・既存レビューコメントを取る。`gh` が使えなければ GitHub MCP で代替する
    - ローカル差分: `code-review-rule` の「対象と比較先」に従う
 3. `code-review-rule` の「対象と比較先」で読むものを読み、「重要度」と「指摘の絞り方」に従って指摘の下書きを出す
-4. 差分がデータの書き込み・認証・認可・金額・並行処理に触れるとき、または入力に「敵対的」とあるときは、`~/.claude/skills/shared-rules/references/conventions/pstack-rule.md` に従って pstack の `interrogate` も走らせ、検証済みの指摘を下書きに加える（重要度は `code-review-rule` で付け直す）
+4. 次の条件に当てはまる pstack の Skill も、`~/.claude/skills/shared-rules/references/conventions/pstack-rule.md` に従って走らせ（両方当たれば両方）、裏付けのある指摘を下書きに加える（重要度は `code-review-rule` で付け直す）
+   - 差分がデータの書き込み・認証・認可・金額・並行処理に触れるとき、または入力に「敵対的」とあるとき: `interrogate`
+   - 共通基盤・DB スキーマ・外部 I/F など差分の外への波及が大きい変更、または入力に「影響範囲」とあるとき: `blast-radius`（確認できた壊れる経路を下書きに加え、未証明の安全前提は確認手段を添えて「反証できなかった点」に回す。検証用スクリプトは `code-review-rule` の「一時ファイル」に従う）
 5. `review-report-rule` の「反証」を通す。`code-review-rule` の「ローカル検証」の lefthook は回さない（oxlint の `--fix` で作業ツリーが変わるため）。実行して確かめるのは、反証の再現テストとコマンドだけにする
 6. `~/.claude/skills/yomiyasu/SKILL.md` を Read して指摘とインラインコメント案の文章を推敲する（存在するときだけ）。推敲後も出力テンプレートと重要度を優先する
 7. 出力テンプレートで提示する。判定のラベルは ✅ Approve / ⚠️ Comment / ❌ Request Changes。「対象 / スコープ」には PR かローカル差分か、比較先、変更ファイル数、CI 状態（PR のとき）を書く

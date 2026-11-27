@@ -1,6 +1,6 @@
 # コードレビュー基準
 
-`review-pr`（指摘する側）と `apply-review-feedback`（直す側）が同じ基準で動くための定義。プロジェクト固有の観点と重要度の補正は `~/.claude/skills/local-rules/references/conventions/code-review-rule.local.md`（Git 外）に書く。
+`review-pr`（指摘する側）と `apply-review-feedback`（直す側）が同じ基準で動くための定義。「一時ファイル」の節は、検証用のファイルを作るほかの Skill や規約からも参照する。プロジェクト固有の観点と重要度の補正は `~/.claude/skills/local-rules/references/conventions/code-review-rule.local.md`（Git 外）に書く。
 
 ## 対象と比較先
 
@@ -44,3 +44,7 @@ typecheck は、`~/.claude/skills/local-rules/references/conventions/coding-rule
 
 - test: 変更ファイルに対応するテストだけを実行する。手順はリポジトリの ci-check 系 Skill か `~/.claude/skills/local-rules/references/conventions/coding-rule.local.md` に従う
 - 実行しなかったもの（CI に任せた typecheck を含む）は「未検証」として報告する
+
+## 一時ファイル
+
+検証用のテストやスクリプトは、シェルのヒアドキュメントではなく `Write` ツールで一時ファイルに書き、終わったら `rm -f` と `rmdir` で消す。`rm -rf` はシェルガードで拒否され、`Delete` ツールは削除保護の確認が出る。
