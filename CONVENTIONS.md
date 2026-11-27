@@ -33,7 +33,7 @@ Skill は frontmatter（`name` / `description`）を本文先頭に持つ。`nam
 
 `.local.md` は差分・追記のみで、矛盾時は `.local.md` を優先する。`.md` の全文をコピーしない。`shared-rules/references/<domain>/<name>.md` を Read したら、`~/.claude/skills/local-rules/references/<domain>/<name>.local.md` が存在するときだけ Read する（`gh skill` はリポジトリごとに別ディレクトリへコピーするので、同じディレクトリには置けない）。
 
-Skill への上書きは `local-rules/references/overlays/<skill>.md` に置き、その Skill の本文に Read の Step を書いたときだけ効く（Skill 本文はハーネスが注入するので自動では読まれない。現状は `analyze-ai-config` / `suggest-pr-description` / `suggest-x-post`）。単独のワークフローには使わない。
+Skill への上書きは `local-rules/references/overlays/<skill>.md` に置き、その Skill の本文に Read の Step を書いたときだけ効く（Skill 本文はハーネスが注入するので自動では読まれない。現状は `analyze-ai-config` / `analyze-issue` / `suggest-pr-description` / `suggest-x-post`）。単独のワークフローには使わない。
 
 `.local.md` を公開側へ昇格させてよいのは、識別子フリーかつリポジトリ横断で再利用できるものだけ。
 

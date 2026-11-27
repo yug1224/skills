@@ -31,7 +31,7 @@ license: MIT
 
 - PR タイトルは `~/.claude/skills/shared-rules/references/conventions/commit-message-rule.md` のヘッダー 1 行と同じ形式（`type(scope): subject [TICKET-ID]`。Squash merge 時のコミットメッセージと揃える）。プロジェクトにタイトル慣習があればそちらを優先する
 - 本文は日本語（技術用語は英語可）。テンプレートの全セクションを埋め、「目的」は 1 つだけ選ぶ
-- 図は `diagram-rule.md` に従って archify で作り、`**変更点の概要**` か `### 主な実装内容` の該当タスクの下に置く
+- 図は `diagram-rule.md` に従って archify で作り、同じ規約の「図を置く位置」に置く
 
 ## 出力フォーマット
 
